@@ -1,0 +1,348 @@
+.cardDetails {
+    padding: 20px;
+    padding-top: 4%;
+  }
+  
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loader {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid red;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .no-data {
+    text-align: center;
+    font-size: 1.5vw;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 4px;
+    width: fit-content;
+    color: #f00;
+  }
+  
+  .details-content {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    border-radius: 8px;
+    background-color: rgba(45, 19, 19, 0.8);
+  }
+
+  
+  .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  .info-container {
+    flex: 2;
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 4vw;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .name{
+    font-size: 4vw;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .section-header {
+    font-weight: bold;
+    color: #f00;
+    font-size: 2vw;
+  }
+  
+  .characters, .creators, .price {
+    margin: 10px 0;
+  }
+  
+  .characters-list, .creators-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .character {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 4px;
+  }
+  .creators{
+    .writer{
+        display: flex;
+        flex-direction: column;
+        .writerElem{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            span{
+                background-color: rgba(255, 255, 255, 0.1);
+                padding: 5px;
+                border-radius: 4px;
+                font-size: 1.5vw;
+            }
+        }
+    }
+  }
+  .artist-container{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .character span {
+    font-size: 1.5vw;
+    color: white;
+  }
+  
+  .price {
+    font-size: 1.7vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    .section-header{
+        font-size: 2vw;
+    }
+  }
+  .price .container-price{
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+    gap: 10px;
+    .thePrice{
+        background-color: rgba(255, 255, 255, 0.1);
+        height: fit-content;
+        padding: 5px;
+        border-radius: 4px;
+        font-size: 1.5vw;
+    }
+  }
+  .dateContainer{
+    display: flex;
+    flex-direction: column;
+  }
+  .dateContainer .date-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 80%;
+  }
+  .date {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    .date-value{
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  .purchase-item {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #f00; /* Rojo para resaltar el título */
+  }
+  
+  .date-value {
+    font-size: 1em;
+    color: #fff;
+  }
+.tooltip-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+    span{
+        align-self: center;
+    }
+  }
+  .tooltip-container .svgInfo{
+    width: 1vw;
+    height: auto;
+    fill: white;
+  }
+  .tooltip-content {
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.8); 
+    color: #fff; 
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%; 
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease; 
+    white-space: nowrap;
+  }
+  
+  .tooltip-content::after {
+    content: "";
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+    z-index: 50;
+  }
+  
+  .svgInfo:hover + .tooltip-content {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @media (max-width: 431px){
+    .cardDetails{
+      padding-top: 9%;
+      .details-content{
+        flex-direction: column;
+        .image-container{
+          img{
+            max-height: 100vh;
+            height: 50vh;
+          }
+        }
+        .title{
+          font-size: 2rem;
+          font-weight: bold;
+        }
+        .name{
+          font-size: 2rem;
+          font-weight: bold;
+        }
+        
+        .section-header {
+          font-weight: bold;
+          color: #f00;
+          font-size: 1.5rem;
+        }
+        .characters, .creators, .price {
+          margin: 10px 0;
+        }
+        
+        .characters-list, .creators-list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        
+        .character {
+          background-color: rgba(255, 255, 255, 0.1);
+          padding: 5px;
+          border-radius: 4px;
+        }
+        .creators{
+          font-size: 1.05rem;
+          .writer{
+              display: flex;
+              flex-direction: column;
+              .writerElem{
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 10px;
+                  span{
+                      background-color: rgba(255, 255, 255, 0.1);
+                      padding: 5px;
+                      border-radius: 4px;
+                      font-size: 1.05rem;
+                  }
+              }
+          }
+        }
+        .artist-container{
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .character span {
+          font-size: 1.15rem;
+          color: white;
+        }
+        .dateContainer .date-info{
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+        .no-data{
+          font-size: 1.05rem;
+        }
+        .date {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          .svgInfo{
+            display: flex;
+            flex-direction: column;
+            width: 4vw;
+          }
+          .date-value{
+              margin-bottom: 10px;
+              padding: 10px;
+              border-radius: 8px;
+              background-color: rgba(255, 255, 255, 0.1);
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          }
+        }
+        .price {
+          font-size: 1.20rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          .section-header{
+              font-size: 1.5;
+          }
+        }
+        .show-more-btn{
+          font-size: 1rem;
+        }
+        .price .container-price{
+          display: flex;
+          flex-direction: row;
+          align-content: space-around;
+          gap: 10px;
+          .thePrice{
+              background-color: rgba(255, 255, 255, 0.1);
+              height: fit-content;
+              padding: 5px;
+              border-radius: 4px;
+              font-size: 1.15rem;
+          }
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,90 @@
+.mainComponent{
+    display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual tamaño */
+  gap: 20px; /* Espacio entre las tarjetas */
+  width: 100%;
+  padding: 20px;
+  padding-top: 4%;
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 3px solid #FFF;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+  .loader::after {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 3px solid;
+    border-color: #FF3D00 transparent;
+  }
+
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    width: 100vw; 
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .no-data-container {
+    width: 50vw;
+    height: 74vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.no-data-container img {
+    object-fit: cover;
+    width: fit-content; 
+    height: fit-content;
+    right: 0; 
+    position: absolute;
+    z-index: 1; 
+    filter: drop-shadow(5px 4px 40px rgba(0, 0, 0, 74.5))
+}
+
+.no-data-container span {
+    font-size: 3rem;
+    top: -12%;
+    color: white; 
+    position: relative; 
+    z-index: 2; 
+}
+
+  
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+  @media (max-width: 431px){
+    .mainComponent{
+      grid-template-columns: repeat(1, 1fr); /* 4 columnas de igual tamaño */
+      padding-top: 9%;
+    }
+  }
